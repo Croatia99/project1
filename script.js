@@ -518,7 +518,7 @@ var supplyList = document.createElement("ul");
     listsDiv.appendChild(supplyList);
 
 function generateList (anyList){
-    
+    supplyList.innerHTML="";
     for (var i=0; i<anyList.length; i++){
     var supplyItems=document.createElement("UL");
     supplyItems.innerHTML= anyList[i];
@@ -534,8 +534,9 @@ function generateList (anyList){
     supplySpan.appendChild(supplyIcon);
 
     
-    }
 }
+}
+
 
 
 
@@ -593,8 +594,8 @@ function currentLocation () {
             $("#current-location").prepend(h6El)
             
             
-            
             $("#generate").on("click",function(){
+                
                 if ($("#option1").parent().attr("class").includes("active")){
                     var disabilitiesSubmit = document.getElementById("exampleFormControlSelect3").value;
                     var numberSubmit = document.getElementById("exampleFormControlSelect1").value;
@@ -638,12 +639,12 @@ function currentLocation () {
                     "Paper and pencil"
                     
                     
-                    ];
+                ];
                     
-                    var childrenSupplyList = ["Books", "games", "puzzles", "Infant formula", "bottles", (babNum*3) +" days supply of diapers", "wipes", "diaper rash cream"];
+                var childrenSupplyList = ["Books", "games", "puzzles", "Infant formula", "bottles", (babNum*3) +" days supply of diapers", "wipes", "diaper rash cream"];
                     
-                    var disabilitiesSupplyList = [
-                        "Be ready to explain to first responders that you need to evacuate and choose to go to a shelter with your family, service animal, caregiver, personal assistant and your assistive technology devices and supplies.",
+                var disabilitiesSupplyList = [
+                    "Be ready to explain to first responders that you need to evacuate and choose to go to a shelter with your family, service animal, caregiver, personal assistant and your assistive technology devices and supplies.",
                         "Plan ahead for accessible transportation that you may need for evacuation or getting to a medical clinic. Work with local services, public transportation or paratransit to identify your local or private accessible transportation options.",
                         "Inform your support network where you keep your emergency supplies. You may want to consider giving one member a key to your house or apartment.",
                         "Contact your city or county government’s emergency management agency or office. Many local offices keep lists of people with disabilities so they can be helped quickly in a sudden emergency.",
@@ -666,7 +667,7 @@ function currentLocation () {
                         "Create a family emergency communications plan that has an out-of-state contact. Plan where to meet if you get separated.",
                         "Consider obtaining an earthquake insurance policy. A standard homeowner’s insurance policy does not cover earthquake damage",
                         "Consider making improvements to your building to fix structural issues that could cause your building to collapse during an earthquake"
-                    
+                        
                     ]
                     
                     var floodSupplyList = [
@@ -682,7 +683,7 @@ function currentLocation () {
                         "Declutter drains and gutters",
                         "Install check valves",
                         "Consider a sump pump with a battery."
-                    
+                        
                     ]
                     
                     var hurricaneSupplyList = [
@@ -694,13 +695,13 @@ function currentLocation () {
                     
                     var tornadoSupplyList = [
                         "Know the signs of a tornado, including a rotating, funnel-shaped cloud; an approaching cloud of debris; or a loud roar—similar to a freight train",
-                    "Sign up for your community’s warning system. The Emergency Alert System (EAS) and National Oceanic and Atmospheric Administration (NOAA) Weather Radio also provide emergency alerts. If your community has sirens, then become familiar with the warning tone.",
+                        "Sign up for your community’s warning system. The Emergency Alert System (EAS) and National Oceanic and Atmospheric Administration (NOAA) Weather Radio also provide emergency alerts. If your community has sirens, then become familiar with the warning tone.",
                     "Pay attention to weather reports. Meteorologists can predict when conditions might be right for a tornado",
                     "Identify and practice going to a safe shelter, while following the latest social and physical-distancing and other health safety guidelines from the Centers for Disease Control and Prevention and your local health authorities, in the event of high winds, such as a safe room built using FEMA criteria or a storm shelter built to ICC 500 standards. The next best protection is a small, interior, windowless room on the lowest level of a sturdy building.",
-                    ]
+                ]
                     
-                    var widlfireSupplyList = [
-                        "Know your community’s evacuation plans and find several ways to leave the area. Drive the evacuation routes and find shelter locations. Have a plan for pets and livestock.",
+                var widlfireSupplyList = [
+                    "Know your community’s evacuation plans and find several ways to leave the area. Drive the evacuation routes and find shelter locations. Have a plan for pets and livestock.",
                         "N95 mask",
                         "Designate a room that can be closed off from outside air. Close all doors and windows. Set up a portable air cleaner to keep indoor pollution levels low when smoky conditions exist.",
                         "Keep important documents in a fireproof, safe place. Create password-protected digital copies.",
@@ -713,51 +714,54 @@ function currentLocation () {
                     
                     
                     
-            var calledState=window[state1];
-            console.log(calledState);
-            if (calledState.earthquakes=true){
-                generateList(earthquakeSupplyList);
-            }
-            if (calledState.floods=true){
-                generateList(floodSupplyList);
-            }
-            if (calledState.hurricanes=true){
-                generateList(hurricaneSupplyList);
-            }
-            if (calledState.tornados=true){
-                generateList(tornadoSupplyList);
-            }
-            if (calledState.wildfires=true){
-                generateList(widlfireSupplyList);
-            }
-            
-            if (babiesSubmit!=="0"){
-                generateList(childrenSupplyList);
-            }
-            
-            if (disabilitiesSubmit!=="no"){
-                generateList(disabilitiesSupplyList);
-            }
-            generateList(generalSupplyList);
-        }else{
-            if ($("#option2").parent().attr("class").includes("active")){
-                var zombieSupplyList = [
-                    "cross-bow",
-                    "strong deodarant",
-                    "sturdy helmet",
-                ]
-                generateList(zombieSupplyList);
-            }
-            
-            if ($("#option3").parent().attr("class").includes("active")){
-                var alienSupplyList = [
-                    "anti-abduction boots",
-                    "tin-foil hat",
-                ]
-                generateList(alienSupplyList);
-            }}
-            
-        })
+                        var calledState=window[state1];
+                        console.log(calledState);
+                        if (calledState.earthquakes=true){
+                            generateList(earthquakeSupplyList);
+                        }
+                        if (calledState.floods=true){
+                            generateList(floodSupplyList);
+                        }
+                        if (calledState.hurricanes=true){
+                            generateList(hurricaneSupplyList);
+                        }
+                        if (calledState.tornados=true){
+                            generateList(tornadoSupplyList);
+                        }
+                        if (calledState.wildfires=true){
+                            generateList(widlfireSupplyList);
+                        }
+                        
+                        if (babiesSubmit!=="0"){
+                            generateList(childrenSupplyList);
+                        }
+                        
+                        if (disabilitiesSubmit!=="no"){
+                            generateList(disabilitiesSupplyList);
+                        }
+                        generateList(generalSupplyList);
+                    }else{
+                        if ($("#option2").parent().attr("class").includes("active")){
+                            var zombieSupplyList = [
+                                "cross-bow",
+                                "strong deodarant",
+                                "sturdy helmet",
+                            ]
+                            generateList(zombieSupplyList);
+                        }
+                        
+                        if ($("#option3").parent().attr("class").includes("active")){
+                            var alienSupplyList = [
+                                "anti-abduction boots",
+                                "tin-foil hat",
+                            ]
+                            $("#lists").empty();
+                            generateList(alienSupplyList);
+                     }}
+                
+                
+            })
+
     });
 })
 }
